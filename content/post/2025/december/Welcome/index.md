@@ -4,7 +4,7 @@ description: Personal blog documenting the daily life and practical experiences 
 slug: welcome-to-my-blog
 date: 2025-12-13 00:00:00+0000
 image : welcome.webp
-categories : daily life
+categories : Daily Life
 tags:
     - life
 weight: 1       # You can add weight to some posts to override the default sorting (date descending)

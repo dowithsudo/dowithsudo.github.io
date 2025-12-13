@@ -1,5 +1,5 @@
 ---
-title: daily life
+title: Daily Life
 description: This is stories about my daily life
 image: daily-life.webp
 
