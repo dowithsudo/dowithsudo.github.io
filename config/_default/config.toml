@@ -18,3 +18,8 @@ disqusShortname = "hugo-theme-stack"
 pagerSize = 5
 
 googleAnalytics = "G-H0MSX0M2D2"
+
+[privacy.googleAnalytics]
+  anonymizeIP = true
+  respectDoNotTrack = true
+
