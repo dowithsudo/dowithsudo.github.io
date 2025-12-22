@@ -182,8 +182,11 @@ Selected certifications relevant to infrastructure, security, and automation.
 
   </details>
 
-
-
 ---
+
+<a href="/cv/wijaya-cv.pdf" download>
+  ⬇ Download CV (PDF)
+</a>
+
 
 
