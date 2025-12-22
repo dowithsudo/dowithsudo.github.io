@@ -1,99 +1,90 @@
 ---
-title: Welcome To My Blog
-description: Building, breaking, learning, and rock and roll. A personal blog about IT work, real experiences, and stories beyond the screen.
+title: welcome to my blog
+description: Welcome, this is a personal blog about IT work, real experience, and life outside the screen.
 slug: welcome-to-my-blog
 date: 2025-12-13 00:00:00+0000
-image : welcome.webp
-categories : Daily Life
-toc : false
+image: welcome.webp
+categories: Daily Life
+toc: false
 tags:
-    - life
-weight: 1       # You can add weight to some posts to override the default sorting (date descending)
+  - life
+weight: 1
 ---
 
+# Welcome To My Blog.
 
-# Welcome
+Thanks for stopping by. I mean that.
 
-> **Building, Breaking, Learning, and Rock and Roll**
+This site is my personal blog. It stays simple on purpose. No marketing talk. No polished promises.
 
-Welcome 👋
+I started this blog to write down my work in IT. Over time, it turned into something more personal. It became a place to record real situations, both technical and human. Servers fail. Networks act strange. Systems choose the worst timing. Life keeps going after the laptop shuts down.
 
-Thanks for stopping by. Seriously.
+Logs and alerts pay the bills. Life still happens around them.
 
-This website is my personal blog. Nothing fancy, no marketing buzzwords.
+Here is what I write about:
 
-It started as a place to document my work in IT, but over time it became something more personal. A space where I write about what I actually experience, both inside and outside the IT world.
+- Real IT troubleshooting from production systems  
+- Server and infrastructure notes from daily work  
+- Network problems that appear outside diagrams  
+- Technical reminders worth keeping  
+- Personal stories from normal days  
+- Lessons from work and life  
 
-Yes, you’ll still find stories about servers going down, networks misbehaving, and systems that suddenly decide to test your patience. But you’ll also find everyday stories. Small moments, lessons learned, thoughts from daily life, and things that happen when work is done and the laptop is finally closed.
+Some posts focus on technical detail. Some focus on experience. Many sit between both.
 
-Because life is more than logs and alerts, even if those pay the bills.
-
-I write about:
-
-* Real-world IT troubleshooting, not lab-only scenarios
-* System, server, and infrastructure notes
-* Networking topics from daily work
-* Technical reminders I don’t want to forget
-* Personal stories and everyday experiences
-* Lessons learned from work, life, and everything in between
-
-Some posts are technical. Some are personal. Many are somewhere in the middle.
-
-If it looks practical, it probably is. If it feels personal, it probably came from a real moment.
+If it feels practical, it came from real work. If it feels personal, it came from a real moment.
 
 ---
 
-## About Me
+## about me
 
 My name is Danu.
 
-I’m based in Bekasi, Indonesia, and I’ve been working in the IT world for more than 13 years. Mostly around systems, networks, infrastructure, and all the things that usually break outside office hours.
+I live in Bekasi, Indonesia. I have worked in IT for more than 14 years. My days revolve around systems, networks, infrastructure, and things that tend to break after office hours.
 
-I don’t claim to know everything. I just trust logs more than assumptions, and I prefer solutions that stay stable at 3 AM.
+By the way, this blog exists for a few reasons:
 
-This blog exists because:
+- Writing helps me think clearly  
+- Documentation should live outside ticket tools  
+- Real experience rarely appears in tutorials  
+- Not every lesson comes from technology  
 
-* I think better when I write things down
-* Documentation shouldn’t live only in ticket systems
-* Real-world experience is often missing from tutorials
-* Not every lesson comes from technology
+Small moments often teach more than major incidents.
 
-Sometimes the most valuable takeaways come from small, non-technical moments.
-
-And yes, coffee. Black coffee is basically part of the workflow.
+Black coffee stays close. It counts as part of the workflow.
 
 ---
 
-## Why This Blog Exists
+## why this blog exists
 
-The main goal of this blog is simple.
+The goal stays simple.
 
-I hope each article here can provide:
+Each article aims to offer:
 
-* Useful insights
-* Practical, realistic solutions
-* References you can actually apply
+- Useful context  
+- Practical ideas  
+- References you can apply  
 
-Not everything here will fit your environment. That’s normal. Different networks, different constraints, different risks. Use what makes sense, adjust the rest.
+Not every setup matches your environment. That is normal. Networks differ. Constraints differ. Risks differ. Take what fits and adjust the rest.
 
-Security, stability, and maintainability matter more to me than shiny setups that look cool but fall apart under load.
+Stability matters more than shiny setups that fail under load. Security stays a process, not a checklist.
+
+---
+## get in touch
+
+If you want to discuss a topic, talk about consulting, work on a project, or share a job opportunity, feel free to reach out. I am open to work at the moment.
+
+- Email: **kamandanu.wijaya@gmail.com**  
+- Phone or WhatsApp: **+62 812 2233 129**
+
+Replies may take time. But i`ll try my best to reply soon as posible.
 
 ---
 
-## Let’s Connect
+## closing
 
-If you have questions, want to discuss a topic, or just want to share feedback, feel free to reach out.
+Thanks for visiting.
 
-📧 **[dowithsudo@gmail.com](mailto:dowithsudo@gmail.com)**
+I hope something here saves you time or prevents a late-night issue. If that happens, the documentation worked.
 
-I might reply a bit late. Usually means I’m fixing something.
-
----
-
-## Closing
-
-Once again, thanks for visiting.
-
-I hope what you read here is useful, relatable, and maybe saves you a bit of time or trouble. If it does, the documentation has done its job.
-
-Happy reading, and welcome to the blog.
+Enjoy reading. Welcome to the blog.

@@ -164,6 +164,26 @@ Selected certifications relevant to infrastructure, security, and automation.
 
   </details>
 
+### Basic Web Development & Programming
+
+- **Fullstack Web Development** — Binar Academy 
+  <details>
+  <summary>View certificate</summary>
+
+  ![Fullstack Web Development Academy - Binar](fswd-binar.webp)
+
+  </details>
+
+- **Python Fullstack Web Development** — Code Artisan Academy 
+  <details>
+  <summary>View certificate</summary>
+
+  ![Python Fullstack Web Development Academy - Code Artisan Academy](pfswd-code.webp)
+
+  </details>
+
+
+
 ---
 
-[View all my certifications →](/certifications#programming)
+
