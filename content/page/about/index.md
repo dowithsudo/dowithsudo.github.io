@@ -1,5 +1,7 @@
 ---
 title: About Me
+description: "IT Infrastructure & Network Administrator with 15 years of experience in servers, networking, security, and automation."
+
 menu:
     main: 
         weight: 5
@@ -9,52 +11,58 @@ menu:
 comments: false
 ---
 
-# About Me
+# Kamandanu Tresna Wijaya
+**IT Infrastructure & Network Administrator**  
+*(Official Title: IT Support)*  
+Indonesia | Open to work & project
 
-## IT Infrastructure & Network Administrator
+## Contact
 
-IT Infrastructure & Network Administrator with **13+ years of experience** managing enterprise-level IT systems, networks, and mission-critical infrastructure. Proven track record of maintaining **99.9% system uptime**, executing **zero-downtime infrastructure migrations**, and improving operational efficiency through proactive monitoring, automation, and documentation.
+- **Email**: [kamandanu.wijaya@gmail.com](mailto:kamandanu.wijaya@gmail.com)  
+- **Phone**: +62 812 2233 129 *(WhatsApp available)*
 
-I have strong expertise in **Windows & Linux Server Administration**, **Active Directory**, **DNS**, **MikroTik routing & firewall**, **network security**, **Proxmox virtualization**, **NAS**, **CCTV**, **PABX systems**, and **automated backup solutions**. Highly skilled in troubleshooting complex infrastructure issues and implementing preventive solutions that reduce recurring incidents.
+---
 
-Throughout my career, I have successfully led **enterprise IT integration projects** and **office infrastructure relocations** with **no unplanned downtime**, collaborating closely with internal stakeholders and third-party vendors. I also developed and maintained an internal knowledge base that reduced troubleshooting time and repeated incidents by **over 50%**.
+## Professional Summary
 
-Beyond technical execution, I am known for my ability to **bridge technical and non-technical teams**, communicate clearly, and provide responsive end-user support that improves productivity and business continuity. I continuously upskill through training and certifications in **Cybersecurity, Cloud Computing, and DevOps**.
-
-I am currently **open to opportunities** in **IT Infrastructure, System Administration, Network Engineering, and DevOps-oriented roles**, bringing a collaborative mindset, strong ownership, and a continuous improvement approach to every team I join.
+IT Infrastructure & Network Administrator with 15 years of hands-on experience supporting and managing enterprise IT environments. Although officially titled as IT Support, my role covers full responsibility for server administration, network infrastructure, system availability, and enterprise IT operations. Experienced in maintaining stable and secure systems, leading infrastructure changes, and resolving complex technical issues in business-critical environments. Strong communicator with the ability to work effectively across technical and non-technical teams.
 
 ---
 
 ## Professional Experience
 
-### IT Infrastructure & Network Administrator  
+### IT Support (Infrastructure & Network Administration)  
 **PT Geoservices** — Full-time  
 *July 2022 – Present | Bekasi, Indonesia*
 
-- Maintained **99.9% system uptime** by deploying, configuring, and managing enterprise servers, routers, switches, firewalls, CCTV, PABX, and NAS infrastructure.
-- Improved network performance and security through proactive monitoring, reducing downtime by **30%**.
-- Served as primary escalation point, resolving **95% of incidents on first contact** and reducing average resolution time by **40%**.
-- Led enterprise-wide IT integration projects with **zero business disruption**.
-- Spearheaded end-to-end office IT infrastructure relocation with **zero unplanned downtime**.
-- Developed internal documentation and knowledge base, reducing repeat incidents and troubleshooting time by **50%**.
+- Manage and maintain enterprise IT infrastructure, including servers, network devices, firewalls, NAS, CCTV, and PABX systems.
+- Ensure high system availability through proactive monitoring, structured maintenance, and automated backup strategies.
+- Act as the primary escalation point for infrastructure and network-related incidents.
+- Troubleshoot and resolve complex server, network, and system issues, reducing recurring incidents through preventive solutions.
+- Perform infrastructure changes, integrations, and improvements with careful planning to avoid business disruption.
+- Execute end-to-end office IT operations and transitions, ensuring continuity of services throughout the process.
+- Develop and maintain internal technical documentation and knowledge base to improve operational efficiency and response time.
 
-### IT Infrastructure & Network Administrator  
+---
+
+### IT Support (Infrastructure & Network Administration)  
 **PT Bahtera Niaga Internasional** — Full-time  
 *June 2011 – July 2022 | Jakarta, Indonesia*
 
-- Ensured **99.9% system availability** through proactive maintenance and automated backup strategies.
-- Installed, configured, and optimized enterprise-grade servers and secure LAN/WAN infrastructure.
-- Reduced issue resolution time by **30%** by implementing structured troubleshooting procedures.
-- Acted as first-line technical support, significantly improving response and resolution efficiency.
-- Designed and maintained the corporate website, increasing online traffic by **50%**.
-- Deployed and configured CCTV and PABX systems to enhance office security and internal communication.
+- Supported and maintained enterprise IT systems and network infrastructure across multiple office environments.
+- Installed, configured, and managed Windows and Linux servers and LAN/WAN networks.
+- Implemented monitoring, maintenance, and backup procedures to improve system stability and reliability.
+- Reduced issue resolution time through structured troubleshooting workflows and clear escalation paths.
+- Provided first-line and infrastructure-level technical support for internal users and management.
+- Designed, developed, and maintained the corporate website to support company visibility and communication.
+- Deployed and managed CCTV and PABX systems to enhance office security and internal communication.
 
 ---
 
 ## Education
 
 **SMK Toga Terang 2**  
-High School Diploma — *Teknik Mesin Otomotif*  
+High School Diploma — Teknik Mesin Otomotif  
 *2000 – 2003*
 
 ---
@@ -62,28 +70,100 @@ High School Diploma — *Teknik Mesin Otomotif*
 ## Core Skills
 
 ### Infrastructure & Systems
-- Windows Server, Linux Server
-- Active Directory, DNS
-- Server Administration, Virtualization (Proxmox)
-- Network-Attached Storage (NAS)
+- Windows Server, Linux Server  
+- Active Directory, DNS, Web & Mail Server  
+- Server Administration  
+- Virtualization (Proxmox, VM Ware, OS Boxes)  
+- Virtual Private Servers (VPS)  
+- Network-Attached Storage (NAS)  
+- Backup & Recovery Systems  
+- Cloud Infrastructure Fundamentals (AWS, GCP)
 
 ### Networking & Security
-- MikroTik Routing & Firewall
-- Routing & Switching
-- Network Security, Monitoring
-- Troubleshooting
+- MikroTik Routing & Firewall  
+- Routing & Switching  
+- Network Security  
+- Monitoring & Troubleshooting  
+- Network Topology Design  
 
-### DevOps & Cloud
-- Docker, Git
-- Jenkins, Ansible, Nagios
-- AWS (Cloud Fundamentals)
+### Automation & Monitoring
+- Docker, Git  
+- Terraform, Ansible  
+- Nagios, Zabbix  
 
-### Development & Web Technologies
-- HTML, CSS, JavaScript, Python
-- Node.js, Express.js, Django, React.js
-- MySQL, REST API, MVC Architecture
+### Basic Development & Web
+- HTML, CSS, JavaScript, Python  
+- Node.js, Express.js, Django, React.js  
+- MySQL, REST API, MVC Architecture  
 
 ### Other
-- CCTV, PABX Systems, VSAT
-- IT Operations, Technical Support, Documentation
-```
+- CCTV (Analog & Digital), PABX, VSAT  
+- IT Operations & End-User Support  
+- Technical Documentation  
+
+---
+
+## Additional Information
+
+### Professional Interests
+- Cybersecurity  
+- Cloud Infrastructure  
+- DevOps Tools & Automation  
+
+### Work Preferences
+- Open to IT Infrastructure, System Administration, Network Engineering, and Infrastructure-focused IT Support roles  
+- Comfortable working with global and cross-functional teams  
+
+---
+
+## Certifications
+
+Selected certifications relevant to infrastructure, security, and automation.
+
+### Infrastructure & Security
+
+- **Google IT Support** — Google / Coursera  
+  <details>
+  <summary>View certificate</summary>
+
+  ![Google IT Support - Google & Coursera](google_it.webp)
+
+  </details>
+
+- **Ethical Hacker** — Cisco Networking Academy  
+  <details>
+  <summary>View certificate</summary>
+
+  ![Ethical Hacker - Cisco](ethical_hacker.webp)
+
+  </details>
+
+- **Introduction to Cybersecurity** — Cisco Networking Academy  
+  <details>
+  <summary>View certificate</summary>
+
+  ![Introduction to Cybersecurity - Cisco](ITCS.webp)
+
+  </details>
+
+### Cloud, Automation & DevOps
+
+- **AWS Cloud Practitioner Essentials** — Dicoding  
+  <details>
+  <summary>View certificate</summary>
+
+  ![AWS Cloud Practitioner Essentials](cpe.webp)
+
+  </details>
+
+- **DevOps** — ID-Networkers  
+  <details>
+  <summary>View certificate</summary>
+
+  ![DevOps - ID-Networkers](devops.webp)
+
+  </details>
+
+---
+
+[View all my certifications →](/certifications#programming)
