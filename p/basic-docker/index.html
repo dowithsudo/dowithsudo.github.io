@@ -1,0 +1,193 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Practical beginner guide to Docker written from real-world IT operations experience. Learn core concepts, step by step setup, Dockerfile basics, containers, volumes, and troubleshooting with a focus on stability, logs, and best practices."><title>Basic Docker</title><link rel=canonical href=https://dowithsudo.com/p/basic-docker/><link rel=stylesheet href=/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css><meta property='og:title' content="Basic Docker"><meta property='og:description' content="Practical beginner guide to Docker written from real-world IT operations experience. Learn core concepts, step by step setup, Dockerfile basics, containers, volumes, and troubleshooting with a focus on stability, logs, and best practices."><meta property='og:url' content='https://dowithsudo.com/p/basic-docker/'><meta property='og:site_name' content='Practical Sysadmin & Network Notes'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Linux'><meta property='article:tag' content='System Administrator'><meta property='article:tag' content='Security'><meta property='article:tag' content='Devops'><meta property='article:published_time' content='2025-12-13T00:00:00+00:00'><meta property='article:modified_time' content='2025-12-13T00:00:00+00:00'><meta property='og:image' content='https://dowithsudo.com/p/basic-docker/cover.webp'><meta name=twitter:title content="Basic Docker"><meta name=twitter:description content="Practical beginner guide to Docker written from real-world IT operations experience. Learn core concepts, step by step setup, Dockerfile basics, containers, volumes, and troubleshooting with a focus on stability, logs, and best practices."><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://dowithsudo.com/p/basic-docker/cover.webp'><link rel="shortcut icon" href=/favicon.png><script async src="https://www.googletagmanager.com/gtag/js?id=G-H0MSX0M2D2"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-H0MSX0M2D2")}</script></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_710a193a70a61629.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Practical Sysadmin & Network Notes</a></h1><h2 class=site-description>Less theory, more uptime</h2></div></header><ol class=menu-social><li><a href=https://github.com/dowithsudo target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://www.linkedin.com/in/ktwijaya/ target=_blank title=linkedin rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 10-4 0"/><path d="M3 7a4 4 0 014-4h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/about-me/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12h3v4H7z"/><path d="M10 6H4A1 1 0 003 7v12a1 1 0 001 1h16a1 1 0 001-1V7a1 1 0 00-1-1h-6"/><path d="M10 3m0 1a1 1 0 011-1h2a1 1 0 011 1v3a1 1 0 01-1 1h-2a1 1 0 01-1-1z"/><path d="M14 16h2"/><path d="M14 12h4"/></svg>
+<span>About Me</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#why-docker-exists-from-real-life>Why Docker Exists (From Real Life)</a></li><li><a href=#what-docker-actually-is>What Docker Actually Is</a><ol><li><a href=#container-vs-vm>Container vs VM</a></li></ol></li><li><a href=#core-concepts-you-must-understand>Core Concepts You Must Understand</a><ol><li><a href=#image>Image</a></li><li><a href=#container>Container</a></li><li><a href=#dockerfile>Dockerfile</a></li><li><a href=#volume>Volume</a></li></ol></li><li><a href=#installing-docker-linux-example>Installing Docker (Linux Example)</a></li><li><a href=#your-first-container>Your First Container</a></li><li><a href=#understanding-dockerfile-hands-on>Understanding Dockerfile (Hands-on)</a><ol><li><a href=#simple-dockerfile-example>Simple Dockerfile Example</a></li></ol></li><li><a href=#building-and-running-custom-image>Building and Running Custom Image</a></li><li><a href=#data-persistence-with-volumes>Data Persistence with Volumes</a></li><li><a href=#basic-docker-commands-youll-use-daily>Basic Docker Commands You’ll Use Daily</a></li><li><a href=#things-beginners-usually-break>Things Beginners Usually Break</a></li><li><a href=#final-notes-from-the-coffee-mug>Final Notes from the Coffee Mug</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/basic-docker/><img src=/p/basic-docker/cover_hu_d4320618ac27c172.webp srcset="/p/basic-docker/cover_hu_d4320618ac27c172.webp 800w, /p/basic-docker/cover_hu_81a27c9fe84238e5.webp 1600w" width=800 height=420 loading=lazy alt="Featured image of post Basic Docker"></a></div><div class=article-details><header class=article-category><a href=/categories/devops/>Devops</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/basic-docker/>Basic Docker</a></h2><h3 class=article-subtitle>Practical beginner guide to Docker written from real-world IT operations experience. Learn core concepts, step by step setup, Dockerfile basics, containers, volumes, and troubleshooting with a focus on stability, logs, and best practices.</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published datetime=2025-12-13T00:00:00Z>Dec 13, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>5 minute read</time></div></footer></div></header><section class=article-content><h2 id=why-docker-exists-from-real-life>Why Docker Exists (From Real Life)</h2><p>A few years back, I got the classic line:</p><blockquote><p>&ldquo;It works on my laptop.&rdquo;</p></blockquote><p>Different OS, different library versions, different configs. Same app, different behavior. Logs didn’t lie, but they didn’t help much either.</p><p>Docker showed up as a <strong>packaging standard</strong>.</p><ul><li>Same app</li><li>Same dependencies</li><li>Same behavior</li></ul><p>From dev laptop to production server.</p><p>Not magic. Just consistency.</p><hr><h2 id=what-docker-actually-is>What Docker Actually Is</h2><p>Let’s keep it grounded.
+Docker is a tool that lets you package an application together with everything it needs to run (code, libraries, config) into a single unit called a container.</p><h3 id=container-vs-vm>Container vs VM</h3><p>Docker <strong>containers</strong> are not virtual machines.</p><ul><li><p>VM</p><ul><li>Full OS</li><li>Heavy</li><li>Slower to boot</li></ul></li><li><p>Container</p><ul><li>Shares host kernel</li><li>Lightweight</li><li>Starts in seconds</li></ul></li></ul><p>Think of containers as <strong>isolated processes with rules</strong>.</p><hr><h2 id=core-concepts-you-must-understand>Core Concepts You Must Understand</h2><p>No buzzwords. Just essentials.</p><h3 id=image>Image</h3><ul><li>Blueprint</li><li>Read-only</li><li>Built once, run many times</li></ul><p>Example:</p><ul><li><code>nginx:latest</code></li><li><code>mysql:8.0</code></li></ul><h3 id=container>Container</h3><ul><li>Running instance of an image</li><li>Has lifecycle</li></ul><p>Create → Start → Stop → Remove</p><h3 id=dockerfile>Dockerfile</h3><ul><li>Recipe</li><li>Defines how an image is built</li></ul><p>If documentation is missing, Dockerfile becomes your last line of defense.</p><h3 id=volume>Volume</h3><ul><li>Persistent data</li><li>Survives container removal</li></ul><p>Databases without volumes are just ticking time bombs.</p><hr><h2 id=installing-docker-linux-example>Installing Docker (Linux Example)</h2><p>I mostly work on Linux servers. Ubuntu in this case.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Update package index</span>
+</span></span><span class=line><span class=cl><span class=c1># Keeps local package list in sync</span>
+</span></span><span class=line><span class=cl>sudo apt update
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Install required packages</span>
+</span></span><span class=line><span class=cl><span class=c1># Allows apt to use repositories over HTTPS</span>
+</span></span><span class=line><span class=cl>sudo apt install -y ca-certificates curl gnupg
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Add Docker official GPG key</span>
+</span></span><span class=line><span class=cl><span class=c1># Used to verify Docker packages authenticity</span>
+</span></span><span class=line><span class=cl>sudo install -m <span class=m>0755</span> -d /etc/apt/keyrings
+</span></span><span class=line><span class=cl>curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class=p>|</span> sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Add Docker repository</span>
+</span></span><span class=line><span class=cl><span class=c1># Tells apt where to download Docker packages</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  <span class=s2>&#34;deb [arch=</span><span class=k>$(</span>dpkg --print-architecture<span class=k>)</span><span class=s2> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+</span></span></span><span class=line><span class=cl><span class=s2>  </span><span class=k>$(</span>lsb_release -cs<span class=k>)</span><span class=s2> stable&#34;</span> <span class=p>|</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Install Docker Engine</span>
+</span></span><span class=line><span class=cl>sudo apt update
+</span></span><span class=line><span class=cl>sudo apt install -y docker-ce docker-ce-cli containerd.io
+</span></span></code></pre></td></tr></table></div></div><p>Quick sanity check:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Check Docker version</span>
+</span></span><span class=line><span class=cl><span class=c1># Confirms Docker is installed and reachable</span>
+</span></span><span class=line><span class=cl>docker --version
+</span></span></code></pre></td></tr></table></div></div><p>If this fails, stop here. Check logs. Don’t continue blindly.</p><hr><h2 id=your-first-container>Your First Container</h2><p>Let’s start boring. Nginx.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Run nginx container</span>
+</span></span><span class=line><span class=cl><span class=c1># -d     : run in background</span>
+</span></span><span class=line><span class=cl><span class=c1># -p     : map host port to container port</span>
+</span></span><span class=line><span class=cl><span class=c1># --name : easier to reference later</span>
+</span></span><span class=line><span class=cl>docker run -d -p 8080:80 --name my-nginx nginx:latest
+</span></span></code></pre></td></tr></table></div></div><p>What just happened:</p><ul><li>Docker pulled the image</li><li>Created a container</li><li>Exposed port 80 inside container to 8080 on host</li></ul><p>Test it:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Simple HTTP request to verify container is responding</span>
+</span></span><span class=line><span class=cl>curl http://localhost:8080
+</span></span></code></pre></td></tr></table></div></div><p>If this works, Docker networking is fine. For now.</p><hr><h2 id=understanding-dockerfile-hands-on>Understanding Dockerfile (Hands-on)</h2><p>A Dockerfile is a simple text file that tells Docker how to build an image step by step, when Docker reads the Dockerfile, it follows the instructions from top to bottom and creates the same environment every time. A Dockerfile explains what to install, how to configure it, and how to run the app — automatically and consistently.</p><p>Now we build something ourselves.</p><h3 id=simple-dockerfile-example>Simple Dockerfile Example</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-dockerfile data-lang=dockerfile><span class=line><span class=cl><span class=c># Use official lightweight Python image</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># Acts as base OS and runtime</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=k>FROM</span><span class=w> </span><span class=s>python:3.11-slim</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># Set working directory inside container</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># All commands will run from here</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=k>WORKDIR</span><span class=w> </span><span class=s>/app</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># Copy local files to container</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># Keeps application code inside image</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=k>COPY</span> . /app<span class=err>
+</span></span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># Install dependencies</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># --no-cache-dir reduces image size</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=k>RUN</span> pip install --no-cache-dir flask<span class=err>
+</span></span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># Expose application port</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># Purely documentation, not firewall</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=k>EXPOSE</span><span class=w> </span><span class=s>5000</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># Default command when container starts</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=c># Runs Flask app</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=k>CMD</span> <span class=p>[</span><span class=s2>&#34;python&#34;</span><span class=p>,</span> <span class=s2>&#34;app.py&#34;</span><span class=p>]</span><span class=err>
+</span></span></span></code></pre></td></tr></table></div></div><p>Every line matters. If you don’t understand one, stop and read.</p><hr><h2 id=building-and-running-custom-image>Building and Running Custom Image</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Build Docker image</span>
+</span></span><span class=line><span class=cl><span class=c1># -t assigns a readable name</span>
+</span></span><span class=line><span class=cl>docker build -t my-flask-app .
+</span></span></code></pre></td></tr></table></div></div><p>Run it:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Run container from custom image</span>
+</span></span><span class=line><span class=cl><span class=c1># Maps Flask port to host</span>
+</span></span><span class=line><span class=cl>docker run -d -p 5000:5000 --name flask-test my-flask-app
+</span></span></code></pre></td></tr></table></div></div><p>Check status:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># List running containers</span>
+</span></span><span class=line><span class=cl><span class=c1># Confirms container health</span>
+</span></span><span class=line><span class=cl>docker ps
+</span></span></code></pre></td></tr></table></div></div><p>If it exits immediately, don’t guess. Check logs.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># View container logs</span>
+</span></span><span class=line><span class=cl><span class=c1># First place to look when something breaks</span>
+</span></span><span class=line><span class=cl>docker logs flask-test
+</span></span></code></pre></td></tr></table></div></div><p>Logs are honest. People aren’t always.</p><hr><h2 id=data-persistence-with-volumes>Data Persistence with Volumes</h2><p>Containers die. Data should not.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Run MySQL with volume</span>
+</span></span><span class=line><span class=cl><span class=c1># -v maps host directory to container data path</span>
+</span></span><span class=line><span class=cl>docker run -d <span class=se>\
+</span></span></span><span class=line><span class=cl>  --name mysql-db <span class=se>\
+</span></span></span><span class=line><span class=cl>  -e <span class=nv>MYSQL_ROOT_PASSWORD</span><span class=o>=</span>secret <span class=se>\
+</span></span></span><span class=line><span class=cl>  -v mysql_data:/var/lib/mysql <span class=se>\
+</span></span></span><span class=line><span class=cl>  mysql:8.0
+</span></span></code></pre></td></tr></table></div></div><p>Why volume matters:</p><ul><li>Container removed → data still exists</li><li>Upgrade container without losing DB</li></ul><p>Seen too many incidents caused by skipping this.</p><hr><h2 id=basic-docker-commands-youll-use-daily>Basic Docker Commands You’ll Use Daily</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Stop container gracefully</span>
+</span></span><span class=line><span class=cl>docker stop &lt;container_name&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Remove container</span>
+</span></span><span class=line><span class=cl>docker rm &lt;container_name&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Remove image</span>
+</span></span><span class=line><span class=cl>docker rmi &lt;image_name&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Inspect container details</span>
+</span></span><span class=line><span class=cl>docker inspect &lt;container_name&gt;
+</span></span></code></pre></td></tr></table></div></div><p>I use <code>inspect</code> more than I’d like to admit.</p><hr><h2 id=things-beginners-usually-break>Things Beginners Usually Break</h2><p>Based on real incidents.</p><ul><li>No volume for database</li><li>Exposing services without firewall rules</li><li>Running everything as root</li><li>No image version pinning</li></ul><p>Docker doesn’t remove responsibility. It just moves it.</p><hr><h2 id=final-notes-from-the-coffee-mug>Final Notes from the Coffee Mug</h2><p>Docker is not about being fancy.</p><p>It’s about:</p><ul><li>Repeatability</li><li>Predictability</li><li>Easier recovery at 2 AM</li></ul><p>If your setup is boring and well-documented, you’re doing it right.</p><p>Next step after this:</p><ul><li>Docker Compose</li><li>Basic container security</li><li>Resource limits</li></ul><p>But that’s another cup of coffee.</p><hr></section><footer class=article-footer><section class=article-tags><a href=/tags/linux/>Linux</a>
+<a href=/tags/system-administrator/>System Administrator</a>
+<a href=/tags/security/>Security</a>
+<a href=/tags/devops/>Devops</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/p/linux-file-permision/><div class=article-image><img src=/p/linux-file-permision/cover.94603c31a8f58ed7c8a4b5aa17f0570a_hu_e11f61cfdf750769.webp width=250 height=150 loading=lazy alt="Featured image of post Linux File Permision" data-key=linux-file-permision data-hash="md5-lGA8Maj1jtfIpLWqF/BXCg=="></div><div class=article-details><h2 class=article-title>Linux File Permision</h2></div></a></article><article class=has-image><a href=/p/linux-server-hardening/><div class=article-image><img src=/p/linux-server-hardening/cover.8a559a3f03cb85174f670fe60222afae_hu_857045e0db31d1a5.webp width=250 height=150 loading=lazy alt="Featured image of post Linux Server Hardening" data-key=linux-server-hardening data-hash="md5-ilWaPwPLhRdPZw/mAiKvrg=="></div><div class=article-details><h2 class=article-title>Linux Server Hardening</h2></div></a></article><article><a href=/p/learn-terraform-basic/><div class=article-details><h2 class=article-title>Learn Terraform Basic</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//hugo-theme-stack.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2025 Practical Sysadmin & Network Notes</section><section class=powerby>dowithsudo@gmail.com<br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.32.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
